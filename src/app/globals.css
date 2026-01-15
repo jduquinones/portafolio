@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* colores webqui */
+  --color-blue-dark: #12246E;
+  --color-blue-light: #108690;
+  --color-teal: #04AC89;
+  --color-lime: #ABD94A;
+  --color-off-white: #F8FAF9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* SISTEMA DE FUENTES ACTUALIZADO */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Inter para textos */
+  --font-heading: var(--font-outfit), sans-serif;
+  /* Outfit para subtítulos */
+  --font-impact: var(--font-oswald), sans-serif;
+  /* Oswald para H1 - máximo impacto */
+  --font-mono: var(--font-space-grotesk), ui-monospace, monospace;
+  /* Para detalles técnicos */
+
+  /* Colores específicos */
+  --color-blue-dark: var(--color-blue-dark);
+  --color-blue-light: var(--color-blue-light);
+  --color-teal: var(--color-teal);
+  --color-lime: var(--color-lime);
+  --color-off-white: var(--color-off-white);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  /* Inter como fuente principal */
+}
+
+/* Estilos base personalizados */
+@layer base {
+  body {
+    @apply text-gray-800 bg-white;
+    font-family: var(--font-sans);
+    /* Inter para todo el texto normal */
+    line-height: 1.6;
+  }
+
+  /* JERARQUÍA TIPOGRÁFICA MEJORADA */
+  h1 {
+    font-family: var(--font-impact);
+    /* OSWALD para máximo impacto en H1 */
+    font-weight: 700;
+    /* Bold para más impacto */
+    letter-spacing: -0.025em;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    /* Opcional: para más impacto */
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    /* Outfit para subtítulos */
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  /* Clase especial para elementos con impacto */
+  .font-impact {
+    font-family: var(--font-impact);
+    /* Oswald */
+    font-weight: 700;
+  }
+
+  /* Para etiquetas, badges o elementos de interfaz técnica */
+  .font-tech {
+    font-family: var(--font-mono);
+    /* Space Grotesk */
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  a {
+    transition: color 0.2s ease;
+  }
+}
+
+/* Utilidades personalizadas */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, var(--color-teal), var(--color-blue-dark));
+  }
+
+  /* Nueva utilidad para el estilo "quote" */
+  .text-quote {
+    font-family: var(--font-heading);
+    /* Outfit para citas */
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes infinite-scroll-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* Animacion para el componente de tecnologia 'slide infinito' */
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-50% - 24px));
+    }
+  }
+
+  @keyframes slideRight {
+    0% {
+      transform: translateX(calc(-50% - 24px));
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-left {
+    animation: slideLeft 110s linear infinite;
+    width: max-content;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 110s linear infinite;
+    width: max-content;
+  }
+
+  @media (min-width: 768px) {
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(-50% - 48px));
+      }
+    }
+
+    @keyframes slideRight {
+      0% {
+        transform: translateX(calc(-50% - 48px));
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+}
