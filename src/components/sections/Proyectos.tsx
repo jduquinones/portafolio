@@ -52,12 +52,11 @@ const otrosProyectos = [
 export default function proyectos() {
   return (
     // Ejemplo simplificado de la estructura visual principal
-    <section id="proyectos" className="pt-20 bg-gray-50">
+    <section id="proyectos" className="pt-3 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* ENCABEZADO AL ESTILO GLINT */}
         <div className="text-center mb-16">
-          <span className="font-tech text-sm text-teal-500 tracking-widest">PORTAFOLIO</span>
-          <h2 className="font-impact text-5xl md:text-6xl mt-2 mb-4">
+          <h2 className="font-impact text-4xl md:text-5xl mt-2 mb-4">
             Proyectos <span className="text-teal-300">Destacados</span>
           </h2>
           <p className="text-gray-600 text-xl max-w-2xl mx-auto">
@@ -149,7 +148,6 @@ export default function proyectos() {
 
         {/* OTROS PROYECTOS - VERSIÓN MEJORADA */}
         <div className="mb-16 mt-16">
-          <h3 className="font-impact text-3xl font-bold mb-8 text-gray-800 text-center">Experiencia Profesional</h3>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
             Algunos módulos y soluciones desarrollados durante mi trayectoria empresarial
           </p>
