@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Space_Grotesk, Outfit, Oswald } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 // 1. FUENTE PARA TEXTOS NORMALES: Inter (moderna y legible)
 const inter = Inter({
@@ -50,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <GoogleTagManager gtmId="GTM-MPC27CR5" />
+      <GoogleAnalytics gaId="G-M24PRY26ZK" />
       <body className={`${inter.variable} ${oswald.variable} ${outfit.variable} ${spaceGrotesk.variable} antialiased`}>
         {children}
       </body>
