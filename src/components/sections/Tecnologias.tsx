@@ -32,14 +32,14 @@ export default function Tecnologias() {
         {/* PRIMER SLIDER (derecha a izquierda) */}
         <div className="relative overflow-hidden py-6 sm:py-8 group/slider">
           {/* FADE EFFECTS */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-linear-to-r from-gray-50 to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-linear-to-l from-gray-50 to-transparent z-10"></div>
 
           <div className="flex gap-6 sm:gap-8 md:gap-10 lg:gap-12 animate-slide-left group-hover/slider:[animation-play-state:paused]">
             {tecnologiasDuplicadas.map((tech, index) => (
               <div
                 key={`${tech.id}-${index}`}
-                className="flex flex-col items-center justify-center min-w-[70px] sm:min-w-[80px] md:min-w-[90px] lg:min-w-[100px] shrink-0 group/item"
+                className="flex flex-col items-center justify-center min-w-17.5 sm:min-w-20 md:min-w-22.5 lg:min-w-25 shrink-0 group/item"
               >
                 <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white shadow-md sm:shadow-lg border border-gray-200 group-hover/item:border-teal-300 group-hover/item:shadow-xl transition-all duration-300">
                   <div className="text-teal-500 group-hover/item:text-teal-600 group-hover/item:scale-110 transition-all duration-300">
@@ -56,8 +56,8 @@ export default function Tecnologias() {
 
         {/* SEGUNDO SLIDER (izquierda a derecha) */}
         <div className="relative overflow-hidden py-6 sm:py-8 group/slider2 mt-6 sm:mt-8">
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-linear-to-r from-gray-50 to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-32 bg-linear-to-l from-gray-50 to-transparent z-10"></div>
 
           <div className="flex gap-6 sm:gap-8 md:gap-10 lg:gap-12 animate-slide-right group-hover/slider2:[animation-play-state:paused]">
             {tecnologiasDuplicadas.map((tech, index) => (

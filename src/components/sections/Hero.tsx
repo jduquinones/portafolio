@@ -119,8 +119,8 @@ export default function HeroSlider() {
 
   return (
     <section className="relative w-full min-h-[calc(100vh-4rem)] lg:min-h-screen pt-16 md:pt-20 overflow-hidden">
-      {/* Fondo con gradientes estáticos */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-900 via-blue-900 to-indigo-900">
+      {/* Fondo con lineares estáticos */}
+      <div className="absolute inset-0 bg-linear-to-br from-teal-900 via-blue-900 to-indigo-900">
         {/* Efectos de luz estáticos */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -259,11 +259,11 @@ export default function HeroSlider() {
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-teal-900/10 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-teal-900/10 via-transparent to-transparent" />
                 </div>
 
                 {/* Borde estático */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/30 to-blue-500/30 rounded-xl lg:rounded-2xl blur-xl -z-10" />
+                <div className="absolute -inset-1 bg-linear-to-r from-teal-500/30 to-blue-500/30 rounded-xl lg:rounded-2xl blur-xl -z-10" />
               </motion.div>
             </AnimatePresence>
           </div>

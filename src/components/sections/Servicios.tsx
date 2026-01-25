@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Globe, Code, ShoppingCart, Cloud, ArrowRight } from "lucide-react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
+import type { Variants } from "framer-motion";
 
 const servicios = [
   {
@@ -15,7 +16,7 @@ const servicios = [
     color: "text-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
-    gradient: "from-blue-500 to-cyan-500",
+    linear: "from-blue-500 to-cyan-500",
   },
   {
     id: 2,
@@ -26,7 +27,7 @@ const servicios = [
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
-    gradient: "from-purple-500 to-pink-500",
+    linear: "from-purple-500 to-pink-500",
   },
   {
     id: 3,
@@ -37,7 +38,7 @@ const servicios = [
     color: "text-emerald-600",
     bgColor: "bg-emerald-50",
     borderColor: "border-emerald-200",
-    gradient: "from-emerald-500 to-teal-500",
+    linear: "from-emerald-500 to-teal-500",
   },
   {
     id: 4,
@@ -48,12 +49,12 @@ const servicios = [
     color: "text-amber-600",
     bgColor: "bg-amber-50",
     borderColor: "border-amber-200",
-    gradient: "from-amber-500 to-orange-500",
+    linear: "from-amber-500 to-orange-500",
   },
 ];
 
-// Variantes de animación optimizadas
-const containerVariants = {
+// Variantes de animación optimizadas CON TIPOS CORRECTOS
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -64,7 +65,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: {
     y: 50,
     opacity: 0,
@@ -95,7 +96,7 @@ const cardVariants = {
   },
 };
 
-const iconContainerVariants = {
+const iconContainerVariants: Variants = {
   normal: {
     scale: 1,
     rotate: 0,
@@ -113,7 +114,7 @@ const iconContainerVariants = {
   },
 };
 
-const iconVariants = {
+const iconVariants: Variants = {
   normal: { scale: 1 },
   hover: {
     scale: 1.2,
@@ -125,7 +126,7 @@ const iconVariants = {
   },
 };
 
-const titleVariants = {
+const titleVariants: Variants = {
   hidden: { opacity: 0, x: -10 },
   visible: {
     opacity: 1,
@@ -137,7 +138,7 @@ const titleVariants = {
   },
 };
 
-const textVariants = {
+const textVariants: Variants = {
   hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
@@ -150,7 +151,7 @@ const textVariants = {
   },
 };
 
-const ctaVariants = {
+const ctaVariants: Variants = {
   hidden: { opacity: 0, y: 5 },
   visible: {
     opacity: 1,
@@ -163,7 +164,7 @@ const ctaVariants = {
   },
 };
 
-const arrowVariants = {
+const arrowVariants: Variants = {
   normal: { x: 0 },
   hover: {
     x: 6,
@@ -194,7 +195,7 @@ export default function Servicios() {
   return (
     <section
       ref={ref}
-      className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white via-gray-50/30 to-white overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 bg-linear-to-b from-white via-gray-50/30 to-white overflow-hidden"
       id="servicios"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,12 +206,12 @@ export default function Servicios() {
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as any,
           }}
         >
           <h2 className="font-impact text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl mb-4 md:mb-6">
             <motion.span
-              className="bg-gradient-to-r from-gray-800 via-gray-900 to-black bg-clip-text text-transparent inline-block"
+              className="bg-linear-to-r from-gray-800 via-gray-900 to-black bg-clip-text text-transparent inline-block"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -222,7 +223,7 @@ export default function Servicios() {
               Soluciones
             </motion.span>
             <motion.span
-              className="ml-2 sm:ml-3 text-transparent bg-gradient-to-r from-teal-500 to-blue-500 bg-clip-text inline-block p-5"
+              className="ml-2 sm:ml-3 text-transparent bg-linear-to-r from-teal-500 to-blue-500 bg-clip-text inline-block p-3"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -276,7 +277,7 @@ export default function Servicios() {
                 animate={{
                   background:
                     hoveredId === servicio.id
-                      ? `radial-gradient(circle at center, rgba(99, 102, 241, 0.08) 0%, transparent 70%)`
+                      ? `radial-linear(circle at center, rgba(99, 102, 241, 0.08) 0%, transparent 70%)`
                       : "transparent",
                 }}
               />
@@ -285,13 +286,13 @@ export default function Servicios() {
               <div className="relative bg-white rounded-2xl p-8 border border-gray-100 group-hover:border-gray-200 shadow-sm group-hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
                 {/* Línea decorativa superior */}
                 <motion.div
-                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-transparent to-transparent"
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-transparent to-transparent"
                   initial={false}
                   animate={{
                     background:
                       hoveredId === servicio.id
-                        ? `linear-gradient(90deg, transparent, ${servicio.gradient.split(" ")[1].replace("from-", "")} 50%, transparent)`
-                        : "linear-gradient(90deg, transparent, transparent 50%, transparent)",
+                        ? `linear-linear(90deg, transparent, ${servicio.linear.split(" ")[1].replace("from-", "")} 50%, transparent)`
+                        : "linear-linear(90deg, transparent, transparent 50%, transparent)",
                   }}
                   transition={{ duration: 0.3 }}
                 />
@@ -317,7 +318,7 @@ export default function Servicios() {
                     {hoveredId === servicio.id && (
                       <>
                         <motion.div
-                          className={`absolute -inset-2 bg-gradient-to-br ${servicio.gradient} rounded-2xl opacity-0`}
+                          className={`absolute -inset-2 bg-linear-to-br ${servicio.linear} rounded-2xl opacity-0`}
                           initial={{ scale: 0.8, opacity: 0 }}
                           animate={{
                             scale: [0.8, 1.2, 0.8],
@@ -330,7 +331,7 @@ export default function Servicios() {
                           }}
                         />
                         <motion.div
-                          className={`absolute -inset-3 bg-gradient-to-br ${servicio.gradient} rounded-2xl opacity-0`}
+                          className={`absolute -inset-3 bg-linear-to-br ${servicio.linear} rounded-2xl opacity-0`}
                           initial={{ scale: 0.8, opacity: 0 }}
                           animate={{
                             scale: [0.8, 1.4, 0.8],
@@ -403,12 +404,12 @@ export default function Servicios() {
                         className="flex items-center"
                         animate={{
                           x: [0, 4, 0],
-                          transition: {
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: servicio.id * 0.2,
-                          },
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: servicio.id * 0.2,
                         }}
                       >
                         <ArrowRight className="w-4 h-4" />

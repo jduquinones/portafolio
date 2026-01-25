@@ -1,9 +1,10 @@
 "use client";
 
-import { Code2, Rocket, Users, Award, ArrowRight } from "lucide-react";
+import { Rocket, Users, Award, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
+import type { Variants } from "framer-motion";
 
 interface Estadistica {
   valor: string;
@@ -18,7 +19,7 @@ const estadisticas: Estadistica[] = [
 ];
 
 // Variantes de animación
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -29,7 +30,7 @@ const containerVariants = {
   },
 };
 
-const textVariants = {
+const textVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -42,7 +43,7 @@ const textVariants = {
   },
 };
 
-const imageVariants = {
+const imageVariants: Variants = {
   hidden: { opacity: 0, scale: 0.9, x: -30 },
   visible: {
     opacity: 1,
@@ -57,7 +58,7 @@ const imageVariants = {
   },
 };
 
-const statVariants = {
+const statVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: (i: number) => ({
     opacity: 1,
@@ -81,7 +82,7 @@ const statVariants = {
   },
 };
 
-const badgeVariants = {
+const badgeVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.8 },
   visible: {
     opacity: 1,
@@ -104,7 +105,7 @@ const badgeVariants = {
   },
 };
 
-const highlightVariants = {
+const highlightVariants: Variants = {
   hidden: {
     opacity: 0,
     x: -20,
@@ -159,15 +160,15 @@ export default function SobreMi() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
-                {/* Overlay con gradiente animado */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent group-hover:from-teal-900/5 group-hover:via-transparent group-hover:to-transparent transition-all duration-500" />
+                {/* Overlay con lineare animado */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent group-hover:from-teal-900/5 group-hover:via-transparent group-hover:to-transparent transition-all duration-500" />
                 {/* Efecto de brillo al hover */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-tr from-teal-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Marco decorativo */}
               <motion.div
-                className="absolute -inset-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-teal-400/20 to-blue-500/20 blur-xl -z-10 opacity-0 group-hover:opacity-70 transition-opacity duration-500"
+                className="absolute -inset-4 rounded-2xl sm:rounded-3xl bg-linear-to-br from-teal-400/20 to-blue-500/20 blur-xl -z-10 opacity-0 group-hover:opacity-70 transition-opacity duration-500"
                 initial={false}
               />
             </div>
@@ -213,7 +214,7 @@ export default function SobreMi() {
               >
                 Transformo desafíos empresariales en{" "}
                 <motion.span
-                  className="text-transparent bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text block sm:inline relative"
+                  className="text-transparent bg-linear-to-r from-teal-600 to-blue-600 bg-clip-text block sm:inline relative"
                   variants={{
                     hidden: {
                       backgroundSize: "0% 100%",
@@ -254,7 +255,7 @@ export default function SobreMi() {
 
                 {/* Highlight especialidad */}
                 <motion.div
-                  className="bg-gradient-to-r from-teal-50/80 to-blue-50/80 p-4 sm:p-5 rounded-xl border-l-4 border-teal-500 shadow-sm font-space-grotesk overflow-hidden"
+                  className="bg-linear-to-r from-teal-50/80 to-blue-50/80 p-4 sm:p-5 rounded-xl border-l-4 border-teal-500 shadow-sm font-space-grotesk overflow-hidden"
                   variants={highlightVariants}
                   whileHover={{
                     borderLeftColor: "#0d9488",
@@ -265,7 +266,7 @@ export default function SobreMi() {
                   <div className="relative">
                     {/* Fondo animado sutil */}
                     <motion.div
-                      className="absolute -right-4 -top-4 w-20 h-20 bg-gradient-to-br from-teal-400/10 to-blue-500/10 rounded-full"
+                      className="absolute -right-4 -top-4 w-20 h-20 bg-linear-to-br from-teal-400/10 to-blue-500/10 rounded-full"
                       animate={{
                         rotate: 360,
                         scale: [1, 1.1, 1],
@@ -323,13 +324,13 @@ export default function SobreMi() {
                     >
                       {/* Fondo sutil al hover */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-teal-50/30 to-blue-50/30 opacity-0 group-hover/stat:opacity-100 rounded-lg sm:rounded-xl -z-10 transition-opacity duration-300"
+                        className="absolute inset-0 bg-linear-to-br from-teal-50/30 to-blue-50/30 opacity-0 group-hover/stat:opacity-100 rounded-lg sm:rounded-xl -z-10 transition-opacity duration-300"
                         initial={false}
                       />
 
                       <div className="flex items-center gap-3">
                         <motion.div
-                          className="p-2 sm:p-2.5 bg-gradient-to-br from-teal-100 to-blue-100 rounded-lg text-teal-600 group-hover/stat:from-teal-200 group-hover/stat:to-blue-200 transition-all duration-300"
+                          className="p-2 sm:p-2.5 bg-linear-to-br from-teal-100 to-blue-100 rounded-lg text-teal-600 group-hover/stat:from-teal-200 group-hover/stat:to-blue-200 transition-all duration-300"
                           whileHover={{
                             rotate: 10,
                             scale: 1.1,
@@ -358,9 +359,9 @@ export default function SobreMi() {
             <div className="relative">
               {/* Línea decorativa */}
               <div className="flex items-center justify-center gap-4 mt-8 mb-2">
-                <div className="h-px w-12 bg-gradient-to-r from-transparent to-gray-300"></div>
+                <div className="h-px w-12 bg-linear-to-r from-transparent to-gray-300"></div>
                 <span className="text-gray-400 text-sm font-medium tracking-wider">¿LISTO PARA COMENZAR?</span>
-                <div className="h-px w-12 bg-gradient-to-l from-transparent to-gray-300"></div>
+                <div className="h-px w-12 bg-linear-to-l from-transparent to-gray-300"></div>
               </div>
             </div>
 
@@ -375,13 +376,13 @@ export default function SobreMi() {
                 href="https://wa.me/573247728641"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/cta inline-flex items-center gap-3 px-7 py-3.5 bg-gradient-to-r from-teal-600 to-blue-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all duration-300 font-inter overflow-hidden relative"
+                className="group/cta inline-flex items-center gap-3 px-7 py-3.5 bg-linear-to-r from-teal-600 to-blue-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all duration-300 font-inter overflow-hidden relative"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {/* Efecto de brillo al hover */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-linear-to-r from-teal-500 to-blue-500 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300"
                   initial={false}
                 />
 
@@ -423,13 +424,13 @@ export default function SobreMi() {
               href="https://wa.me/573247728641"
               target="_blank"
               rel="noopener noreferrer"
-              className="group/cta-mobile inline-flex items-center justify-center gap-3 px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-teal-600 to-blue-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all duration-300 w-full font-inter overflow-hidden relative"
+              className="group/cta-mobile inline-flex items-center justify-center gap-3 px-5 sm:px-6 py-3 sm:py-3.5 bg-linear-to-r from-teal-600 to-blue-600 text-white font-semibold rounded-lg hover:shadow-xl transition-all duration-300 w-full font-inter overflow-hidden relative"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
             >
               {/* Efecto de brillo al hover */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 opacity-0 group-hover/cta-mobile:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 bg-linear-to-r from-teal-500 to-blue-500 opacity-0 group-hover/cta-mobile:opacity-100 transition-opacity duration-300"
                 initial={false}
               />
 

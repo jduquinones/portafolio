@@ -4,6 +4,7 @@ import { FaDocker, FaChartBar, FaClipboardCheck, FaCar } from "react-icons/fa";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
+import type { Variants } from "framer-motion";
 
 // Proyectos sin imágenes (módulos)
 const otrosProyectos = [
@@ -16,7 +17,7 @@ const otrosProyectos = [
     resultado: "Dockerización exitosa para facilitar despliegue y escalabilidad",
     icon: <FaDocker className="text-blue-500" />,
     color: "bg-blue-50",
-    gradient: "from-blue-500 to-cyan-500",
+    linear: "from-blue-500 to-cyan-500",
   },
   {
     id: 5,
@@ -29,7 +30,7 @@ const otrosProyectos = [
       "Genera planes de acción obligatorios o voluntarios según umbrales configurables por RRHH, con seguimiento y monitoreo de mejoras. Aplica para evaluaciones anuales y cambios de cargo",
     icon: <FaClipboardCheck className="text-green-500" />,
     color: "bg-green-50",
-    gradient: "from-emerald-500 to-teal-500",
+    linear: "from-emerald-500 to-teal-500",
   },
   {
     id: 6,
@@ -40,7 +41,7 @@ const otrosProyectos = [
     resultado: "Dashboard interactivo con datos en tiempo real del ERP",
     icon: <FaChartBar className="text-purple-500" />,
     color: "bg-purple-50",
-    gradient: "from-purple-500 to-pink-500",
+    linear: "from-purple-500 to-pink-500",
   },
   {
     id: 9,
@@ -52,7 +53,7 @@ const otrosProyectos = [
     resultado: "Control completo de flota y trazabilidad de entregas con firma digital del cliente",
     icon: <FaCar className="text-amber-500" />,
     color: "bg-orange-50",
-    gradient: "from-amber-500 to-orange-500",
+    linear: "from-amber-500 to-orange-500",
   },
 ];
 
@@ -99,7 +100,7 @@ const containerVariants = {
   },
 };
 
-const projectCardVariants = {
+const projectCardVariants: Variants = {
   hidden: {
     y: 60,
     opacity: 0,
@@ -127,7 +128,7 @@ const projectCardVariants = {
   },
 };
 
-const moduleCardVariants = {
+const moduleCardVariants: Variants = {
   hidden: {
     y: 40,
     opacity: 0,
@@ -154,7 +155,7 @@ const moduleCardVariants = {
   },
 };
 
-const imageVariants = {
+const imageVariants: Variants = {
   normal: { scale: 1 },
   hover: {
     scale: 1.05,
@@ -165,7 +166,7 @@ const imageVariants = {
   },
 };
 
-const overlayVariants = {
+const overlayVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -200,7 +201,7 @@ export default function Proyectos() {
     <section
       id="proyectos"
       ref={ref}
-      className="pt-16 sm:pt-20 md:pt-24 bg-gradient-to-b from-white via-gray-50/30 to-white overflow-hidden"
+      className="pt-16 sm:pt-20 md:pt-24 bg-linear-to-b from-white via-gray-50/30 to-white overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* ENCABEZADO CON ANIMACIÓN */}
@@ -215,7 +216,7 @@ export default function Proyectos() {
         >
           <h2 className="font-impact text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl mb-4 md:mb-6">
             <motion.span
-              className="bg-gradient-to-r from-gray-800 via-gray-900 to-black bg-clip-text text-transparent inline-block"
+              className="bg-linear-to-r from-gray-800 via-gray-900 to-black bg-clip-text text-transparent inline-block"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -227,7 +228,7 @@ export default function Proyectos() {
               Proyectos
             </motion.span>
             <motion.span
-              className="ml-2 sm:ml-3 text-transparent bg-gradient-to-r from-teal-500 to-blue-500 bg-clip-text inline-block"
+              className="ml-2 sm:ml-3 text-transparent bg-linear-to-r from-teal-500 to-blue-500 bg-clip-text inline-block"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -274,7 +275,7 @@ export default function Proyectos() {
             >
               {/* EFECTO DE BRILLO AL HOVER */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 rounded-2xl -z-10"
+                className="absolute inset-0 bg-linear-to-br from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 rounded-2xl -z-10"
                 initial={false}
                 transition={{ duration: 0.4 }}
               />
@@ -289,8 +290,8 @@ export default function Proyectos() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  {/* OVERLAY GRADIENTE SOBRE LA IMAGEN */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* OVERLAY linearE SOBRE LA IMAGEN */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
 
                 {/* BADGE FLOTANTE */}
@@ -340,7 +341,7 @@ export default function Proyectos() {
                 variants={overlayVariants}
                 initial="hidden"
                 whileHover="visible"
-                className="absolute inset-0 bg-gradient-to-br from-teal-900/95 to-blue-900/95 p-6 md:p-8 flex flex-col justify-end opacity-0 rounded-2xl"
+                className="absolute inset-0 bg-linear-to-br from-teal-900/95 to-blue-900/95 p-6 md:p-8 flex flex-col justify-end opacity-0 rounded-2xl"
               >
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="font-impact text-2xl text-white mb-3">{proyecto.nombre}</h3>
@@ -376,7 +377,7 @@ export default function Proyectos() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1 }}
             >
-              <span className="bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
                 Soluciones Técnicas
               </span>
             </motion.h3>
@@ -412,7 +413,7 @@ export default function Proyectos() {
               >
                 {/* LÍNEA SUPERIOR ANIMADA */}
                 <motion.div
-                  className="relative h-1.5 bg-gradient-to-r from-teal-400 to-blue-500"
+                  className="relative h-1.5 bg-linear-to-r from-teal-400 to-blue-500"
                   initial={{ width: "0%" }}
                   whileInView={{ width: "100%" }}
                   transition={{ duration: 0.8, delay: proyecto.id * 0.1 }}
@@ -421,7 +422,7 @@ export default function Proyectos() {
 
                 {/* EFECTO DE FONDO AL HOVER */}
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${proyecto.gradient} opacity-0 group-hover:opacity-5 rounded-2xl -z-10`}
+                  className={`absolute inset-0 bg-linear-to-br ${proyecto.linear} opacity-0 group-hover:opacity-5 rounded-2xl -z-10`}
                   initial={false}
                 />
 
@@ -429,7 +430,7 @@ export default function Proyectos() {
                   {/* ICONO Y TIPO */}
                   <div className="flex items-center justify-between mb-5">
                     <motion.div
-                      className="p-3 rounded-xl bg-gradient-to-br from-gray-50 to-white shadow-sm group-hover:shadow-md transition-shadow"
+                      className="p-3 rounded-xl bg-linear-to-br from-gray-50 to-white shadow-sm group-hover:shadow-md transition-shadow"
                       whileHover={{
                         rotate: 10,
                         scale: 1.1,
